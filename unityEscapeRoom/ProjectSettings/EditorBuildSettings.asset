@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Room 1 - Marston.unity
+    guid: 76001ee214ccbc84baff9f351c3f1381
+  - enabled: 1
+    path: Assets/Scenes/Room 2 - Reitz Union.unity
+    guid: fbd97c125abb5bd44a104af66198e7ac
   m_configObjects: {}
