@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class MouseLookAround : MonoBehaviour
+{
+    float rotationX = 0f;
+    float rotationY = 0f;
+
+    public float sensitivity = 10.0f;
+    public Vector3 initialRotation = new Vector3(0f, 180f, 0f); // Initial starting rotation
+
+    void Start()
+    {
+        // Set the initial rotation
+        rotationX = initialRotation.x;
+        rotationY = initialRotation.y;
+        transform.localEulerAngles = initialRotation;
+    }
+
+    void Update()
+    {
+        rotationY += Input.GetAxis("Mouse X") * sensitivity;
+        rotationX += Input.GetAxis("Mouse Y") * -1 * sensitivity;
+
+        // Clamp vertical rotation to prevent flipping
+        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+
+        transform.localEulerAngles = new Vector3(rotationX, rotationY, 0);
+    }
+}
