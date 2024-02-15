@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ClickHandler : MonoBehaviour
 {
-
+    public bool doorLocked;
     private Renderer _renderer;
     // Start is called before the first frame update
     void Start()
@@ -13,9 +13,22 @@ public class ClickHandler : MonoBehaviour
         _renderer = GetComponent<Renderer>();
     }
 
+
     private void OnMouseDown() 
     {
-        Debug.Log("Clicked on a door!");
-        SceneManager.LoadScene("Room 2 - Reitz Union");
+        if (doorLocked == false) {
+            Debug.Log(doorLocked);
+            Debug.Log("Clicked on an unlocked door!");
+            SceneManager.LoadScene("Room 2 - Reitz Union");
+        }
+        else {
+            Debug.Log(doorLocked);
+            Debug.Log("Clicked on a locked door!");
+        }
+    }
+    public void unlockDoor() {
+        this.doorLocked = false;
+        Debug.Log(doorLocked);
+        Debug.Log("Unlock function entered!");
     }
 }
