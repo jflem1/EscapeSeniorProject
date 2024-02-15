@@ -622,7 +622,6 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
---- !u!1 &627640634
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -655,6 +654,7 @@ Transform:
   - {fileID: 1117952418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+
 --- !u!1 &697238875
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +838,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83c06f40db204264f869871ed7294fb7, type: 3}
   m_PrefabInstance: {fileID: 905844127}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!1 &1016401570
 GameObject:
   m_ObjectHideFlags: 0

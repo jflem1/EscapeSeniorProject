@@ -30,7 +30,7 @@ public class ClipBoard_Script : MonoBehaviour
     }
 
     void Update(){
-
+        
     }
 }
 
