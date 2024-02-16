@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClipBoard_Script : MonoBehaviour
+public class PaintingScript : MonoBehaviour
 {
     public Transform target;
     public float speed;
@@ -23,7 +23,6 @@ public class ClipBoard_Script : MonoBehaviour
         Debug.Log("Started!");
         originalPos = transform.position;
         originalRot = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
-
     }
 
     private void OnMouseDown() 
@@ -37,8 +36,9 @@ public class ClipBoard_Script : MonoBehaviour
 
         
     }
-
-    void Update(){
+    // Update is called once per frame
+    void Update()
+    {
         if(moving == true){
             transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward, speed);
             transform.right = target.position - target.position;
@@ -60,8 +60,5 @@ public class ClipBoard_Script : MonoBehaviour
             }
             
         }
-            
-                
     }
 }
-
