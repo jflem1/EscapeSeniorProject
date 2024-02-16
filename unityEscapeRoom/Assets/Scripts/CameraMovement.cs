@@ -10,6 +10,10 @@ public class MouseLookAround : MonoBehaviour
 
     // Reference to the clipboard script
     public ClipBoard_Script clipboardScript;
+    public BookScript bookScript;
+    public LaptopScript laptopScript;
+    public KeyPadZoomScript keypadScript;
+    public PaintingScript paintingScript;
 
     void Start()
     {
@@ -19,12 +23,42 @@ public class MouseLookAround : MonoBehaviour
         transform.localEulerAngles = initialRotation;
 
         clipboardScript = FindObjectOfType<ClipBoard_Script>();
+        bookScript = FindObjectOfType<BookScript>();
+        laptopScript = FindObjectOfType<LaptopScript>();
+        keypadScript = FindObjectOfType<KeyPadZoomScript>();
+        paintingScript = FindObjectOfType<PaintingScript>();
     }
 
     void Update()
     {
         // Check if the clipboard is not in front of the camera
-        if (clipboardScript != null && !clipboardScript.inFront)
+        if (clipboardScript != null && clipboardScript.inFront)
+        {
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if(bookScript != null && bookScript.inFront){
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if(laptopScript != null && laptopScript.inFront){
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if(keypadScript != null && keypadScript.inFront){
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if(paintingScript != null && paintingScript.inFront){
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else
         {
             rotationY += Input.GetAxis("Mouse X") * sensitivity;
             rotationX += Input.GetAxis("Mouse Y") * -1 * sensitivity;
@@ -33,12 +67,8 @@ public class MouseLookAround : MonoBehaviour
             rotationX = Mathf.Clamp(rotationX, -90f, 90f);
 
             transform.localEulerAngles = new Vector3(rotationX, rotationY, 0);
-        }
-        else
-        {
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
+
+
         }
     }
 }
