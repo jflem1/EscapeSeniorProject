@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.InteropServices;
+using UnityEngine.SceneManagement;
 
 public class PlayerName : MonoBehaviour
 {
@@ -33,6 +34,6 @@ public class PlayerName : MonoBehaviour
             StartGame (saveName);
         #endif
 
-        
+        SceneManager.LoadScene("Room 1 - Marston");
     }
 }
