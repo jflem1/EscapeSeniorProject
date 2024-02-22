@@ -32,7 +32,7 @@ public class MouseLookAround : MonoBehaviour
     void Update()
     {
         // Check if the clipboard is not in front of the camera
-        if (clipboardScript != null && clipboardScript.inFront)
+        if (clipboardScript != null && clipboardScript.moving)
         {
             rotationX = initialRotation.x;
             rotationY = initialRotation.y;
