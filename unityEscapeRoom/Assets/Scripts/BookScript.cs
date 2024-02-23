@@ -17,6 +17,7 @@ public class BookScript : MonoBehaviour
     private Vector3 originalRot;
 
     private Vector3 newRot;
+    public Vector3 bookVector;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class BookScript : MonoBehaviour
             Debug.Log("Clicked1!");
             if(moving == false){
                 moving = true;
+                inFront = true;
             }
         }
 
@@ -40,7 +42,7 @@ public class BookScript : MonoBehaviour
     void Update()
     {
         if(moving == true){
-            transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward, speed);
+            transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward + bookVector, speed);
             transform.right = target.position - target.position;
             newRot = new Vector3(target.rotation.x + rotX, target.rotation.y + rotY, target.rotation.z + rotZ);
         //    transform.rotation = originalRot;
