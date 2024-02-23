@@ -18,6 +18,7 @@ public class ClipBoard_Script : MonoBehaviour
     public Vector3 originalRot;
 
     public Vector3 newRot;
+    public Vector3 clipboardVector;
     // Start is called before the first frame update
     
     void Start()
@@ -26,6 +27,7 @@ public class ClipBoard_Script : MonoBehaviour
         originalPos = transform.position;
         originalRot = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
         // backArrowScript = GameObject.Find("Back_Button").GetComponent<BackArrowScript>();
+        GameObject.Find("Back_Button").GetComponent<Renderer>().enabled = false;
     }
 
     private void OnMouseDown() 
@@ -75,6 +77,7 @@ public class ClipBoard_Script : MonoBehaviour
                 rotZ = 90;
                 newRot = new Vector3(target.rotation.x + rotX, target.rotation.y + rotY, target.rotation.z + rotZ);
                 transform.eulerAngles = newRot;
+                GameObject.Find("Back_Button").GetComponent<Renderer>().enabled = true;
             }
             
         }   
@@ -87,12 +90,13 @@ public class ClipBoard_Script : MonoBehaviour
         //         moving2 = false;
         //         inFront = false;
         //     }
-            transform.position = Vector3.MoveTowards(transform.position, originalPos, speed);
-            if(transform.position == originalPos){
+            transform.position = Vector3.MoveTowards(transform.position, originalPos + clipboardVector, speed);
+            if(transform.position == originalPos + clipboardVector){
                 moving2 = false;
                 inFront = false;
                 GameObject.Find("Back_Button").GetComponent<BackArrowScript>().backButtonClicked = false;
-                    
+                GameObject.Find("Back_Button").GetComponent<Renderer>().enabled = false;
+                //transform.eulerAngles = originalRot;    
             }
 
             
