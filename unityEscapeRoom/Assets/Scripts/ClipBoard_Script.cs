@@ -6,31 +6,61 @@ public class ClipBoard_Script : MonoBehaviour
 {
     public Transform target;
     public float speed;
+  //  private bool inFront = false;
+    public float distance;
+    private bool moving = false;
+    private bool moving2 = false;
     public bool inFront = false;
-    private Transform temp;
+    private Vector3 originalPos;
+
+    private Vector3 originalRot;
+
+    private Vector3 newRot;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Started!");
-        temp = transform;
+        originalPos = transform.position;
+        originalRot = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+
     }
 
     private void OnMouseDown() 
     {
-        Debug.Log(temp.position);
-        if(inFront){
-            transform.position = temp.position;
-            Debug.Log("Clicked2!"); 
-        }
-        else{
+        if(!inFront){
             Debug.Log("Clicked1!");
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+            if(moving == false){
+                moving = true;
+            }
         }
-        inFront = !inFront;
+
+        
     }
 
     void Update(){
-
+        if(moving == true){
+            transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward, speed);
+            transform.right = target.position - target.position;
+            newRot = new Vector3(target.rotation.x + 90, target.rotation.y - 90, target.rotation.z - 90);
+        //    transform.rotation = originalRot;
+            transform.eulerAngles = newRot;
+            if(transform.position == target.position + target.forward){
+                moving = false;
+                inFront = true;
+            }
+            
+        }    
+        if(moving2 == true){
+            transform.position = Vector3.MoveTowards(transform.position, originalPos, speed);
+            transform.eulerAngles = originalRot;
+            if(transform.position == originalPos){
+                moving2 = false;
+                inFront = false;
+            }
+            
+        }
+            
+                
     }
 }
 
