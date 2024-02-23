@@ -6,7 +6,7 @@ public class ClipBoard_Script : MonoBehaviour
 {
     public Transform target;
     public float speed;
-    private bool moving = false;
+    public bool moving = false;
     private bool moving2 = false;
     public bool inFront = false;
     public float rotX;
