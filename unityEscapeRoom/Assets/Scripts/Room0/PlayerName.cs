@@ -27,6 +27,7 @@ public class PlayerName : MonoBehaviour
     public void SetName() 
     {
         saveName = inputText.text;
+        // Use PlayerPrefs.GetString("username") to fetch back this data
         PlayerPrefs.SetString("username", saveName);
         Debug.Log(saveName);
 
