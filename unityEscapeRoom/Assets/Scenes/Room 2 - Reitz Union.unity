@@ -1906,6 +1906,7 @@ GameObject:
   - component: {fileID: 1835098552}
   - component: {fileID: 1835098551}
   - component: {fileID: 1835098555}
+  - component: {fileID: 1835098556}
   m_Layer: 0
   m_Name: Door Object
   m_TagString: Untagged
@@ -2012,6 +2013,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+--- !u!114 &1835098556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835098550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e6ace25f5cfa441840851dbec694a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorLocked: 0
 --- !u!1 &1904176875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,12 +2446,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2138778164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b16c5276395ab48b4ae8ed4af4b1a5, type: 3}
+  m_Script: {fileID: 11500000, guid: b2ceb8ba296059147bf5d21bc08d09af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 10
+  sensitivity: 2
   initialRotation: {x: 0, y: 180, z: 0}
   clipboardScript: {fileID: 0}
+  bookScript: {fileID: 0}
+  laptopScript: {fileID: 0}
+  keypadScript: {fileID: 0}
+  paintingScript: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

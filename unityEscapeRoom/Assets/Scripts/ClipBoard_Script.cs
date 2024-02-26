@@ -66,17 +66,12 @@ public class ClipBoard_Script : MonoBehaviour
         if(moving == true){
             transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward, speed);
             transform.right = target.position - target.position;
-            
-        //    transform.rotation = originalRot;
-            // transform.eulerAngles = newRot;
+            newRot = new Vector3(target.rotation.x + rotX, target.rotation.y + rotY, target.rotation.z + rotZ);
+            transform.eulerAngles = newRot;
             if(transform.position == target.position + target.forward){
                 moving = false;
-                inFront = true;
-                rotX = 90;
-                rotY = 90;
-                rotZ = 90;
-                newRot = new Vector3(target.rotation.x + rotX, target.rotation.y + rotY, target.rotation.z + rotZ);
-                transform.eulerAngles = newRot;
+                inFront = true;                
+                
                 GameObject.Find("Back_Button").GetComponent<Renderer>().enabled = true;
             }
             
@@ -84,14 +79,10 @@ public class ClipBoard_Script : MonoBehaviour
     }
     void  MoveToOriginalPosition() {
         if(moving2 == true){
-        //     transform.position = Vector3.MoveTowards(transform.position, originalPos, speed);
-        //     transform.eulerAngles = originalRot;
-        //     if(transform.position == originalPos){
-        //         moving2 = false;
-        //         inFront = false;
-        //     }
+            Debug.Log("REACHED");
             transform.position = Vector3.MoveTowards(transform.position, originalPos + clipboardVector, speed);
             if(transform.position == originalPos + clipboardVector){
+                
                 moving2 = false;
                 inFront = false;
                 GameObject.Find("Back_Button").GetComponent<BackArrowScript>().backButtonClicked = false;
