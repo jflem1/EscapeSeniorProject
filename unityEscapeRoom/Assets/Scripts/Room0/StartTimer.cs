@@ -6,14 +6,13 @@ public class StartTimer : MonoBehaviour
 {
     // public TMPro.TextMeshProUGUI timerText;
     public float timer = 0;
-    public bool gamePaused = true;
+    public bool gamePaused = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-
     }
 
     // Update is called once per frame
@@ -26,8 +25,16 @@ public class StartTimer : MonoBehaviour
 
     }
 
+
+
     public void PauseTime()
     {
+        gamePaused = !gamePaused;
+    }
+
+    void OnMouseDown()
+    {
+        Debug.Log("Clicked Pause");
         gamePaused = !gamePaused;
     }
 }
