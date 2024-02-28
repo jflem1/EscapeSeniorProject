@@ -1954,12 +1954,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2138778164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b16c5276395ab48b4ae8ed4af4b1a5, type: 3}
+  m_Script: {fileID: 11500000, guid: b2ceb8ba296059147bf5d21bc08d09af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 10
+  sensitivity: 2
   initialRotation: {x: 0, y: 180, z: 0}
   clipboardScript: {fileID: 0}
+  bookScript: {fileID: 0}
+  laptopScript: {fileID: 0}
+  keypadScript: {fileID: 0}
+  paintingScript: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
