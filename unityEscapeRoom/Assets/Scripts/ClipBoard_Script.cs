@@ -64,11 +64,11 @@ public class ClipBoard_Script : MonoBehaviour
 
     void MoveToFront() {
         if(moving == true){
-            transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward, speed);
+            transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward + clipboardVector, speed);
             transform.right = target.position - target.position;
             newRot = new Vector3(target.rotation.x + rotX, target.rotation.y + rotY, target.rotation.z + rotZ);
             transform.eulerAngles = newRot;
-            if(transform.position == target.position + target.forward){
+            if(transform.position == target.position + target.forward + clipboardVector){
                 moving = false;
                 inFront = true;                
                 
