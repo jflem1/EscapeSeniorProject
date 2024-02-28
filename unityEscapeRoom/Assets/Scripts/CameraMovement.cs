@@ -14,6 +14,9 @@ public class MouseLookAround : MonoBehaviour
     public LaptopScript laptopScript;
     public KeyPadZoomScript keypadScript;
     public PaintingScript paintingScript;
+    public PaletteScript paletteScript;
+    public BowlscoreScript bowlscoreScript;
+    public PrinterScript printerScript;
 
     void Start()
     {
@@ -27,13 +30,15 @@ public class MouseLookAround : MonoBehaviour
         laptopScript = FindObjectOfType<LaptopScript>();
         keypadScript = FindObjectOfType<KeyPadZoomScript>();
         paintingScript = FindObjectOfType<PaintingScript>();
+        paletteScript = FindObjectOfType<PaletteScript>();
+        bowlscoreScript = FindObjectOfType<BowlscoreScript>();
+        printerScript = FindObjectOfType<PrinterScript>();
     }
 
     void Update()
     {
         // Check if the clipboard is not in front of the camera
-        if (clipboardScript != null && clipboardScript.inFront)
-        {
+        if (clipboardScript != null && clipboardScript.inFront){
             rotationX = initialRotation.x;
             rotationY = initialRotation.y;
             transform.localEulerAngles = initialRotation;
@@ -54,6 +59,21 @@ public class MouseLookAround : MonoBehaviour
             transform.localEulerAngles = initialRotation;
         }
         else if(paintingScript != null && paintingScript.inFront){
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if (paletteScript != null && paletteScript.inFront){
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if (bowlscoreScript != null && bowlscoreScript.inFront){
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if (printerScript != null && printerScript.inFront){
             rotationX = initialRotation.x;
             rotationY = initialRotation.y;
             transform.localEulerAngles = initialRotation;

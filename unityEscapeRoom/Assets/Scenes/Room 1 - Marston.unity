@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2138778167}
-  speed: 0.001
+  speed: 0.05
   inFront: 0
   rotX: 0
   rotY: -20
@@ -858,7 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2138778167}
-  speed: 0.001
+  speed: 0.05
   inFront: 0
   rotX: 0
   rotY: -90
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2138778167}
-  speed: 0.001
+  speed: 0.05
   inFront: 0
   rotX: 0
   rotY: 0
@@ -2231,7 +2231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2138778167}
-  speed: 0.001
+  speed: 0.05
   inFront: 0
   rotX: 180
   rotY: 0
@@ -3015,15 +3015,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: da1d9f4dc2a121747a3c82d392f61812, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.585
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: da1d9f4dc2a121747a3c82d392f61812, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.303
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: da1d9f4dc2a121747a3c82d392f61812, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.147
+      value: -36.36
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: da1d9f4dc2a121747a3c82d392f61812, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3179,6 +3179,8 @@ MonoBehaviour:
   laptopScript: {fileID: 0}
   keypadScript: {fileID: 0}
   paintingScript: {fileID: 0}
+  paletteScript: {fileID: 0}
+  bowlscoreScript: {fileID: 0}
 --- !u!1001 &2143518279
 PrefabInstance:
   m_ObjectHideFlags: 0
