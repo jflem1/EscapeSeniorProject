@@ -17,6 +17,8 @@ public class MouseLookAround : MonoBehaviour
     public PaletteScript paletteScript;
     public BowlscoreScript bowlscoreScript;
     public PrinterScript printerScript;
+    public ClockScript clockScript;
+    public NotebookScript notebookScript;
 
     void Start()
     {
@@ -33,6 +35,8 @@ public class MouseLookAround : MonoBehaviour
         paletteScript = FindObjectOfType<PaletteScript>();
         bowlscoreScript = FindObjectOfType<BowlscoreScript>();
         printerScript = FindObjectOfType<PrinterScript>();
+        clockScript = FindObjectOfType<ClockScript>();
+        notebookScript = FindObjectOfType<NotebookScript>();
     }
 
     void Update()
@@ -74,6 +78,18 @@ public class MouseLookAround : MonoBehaviour
             transform.localEulerAngles = initialRotation;
         }
         else if (printerScript != null && printerScript.inFront){
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if (clockScript != null && clockScript.inFront)
+        {
+            rotationX = initialRotation.x;
+            rotationY = initialRotation.y;
+            transform.localEulerAngles = initialRotation;
+        }
+        else if (notebookScript != null && notebookScript.inFront)
+        {
             rotationX = initialRotation.x;
             rotationY = initialRotation.y;
             transform.localEulerAngles = initialRotation;
