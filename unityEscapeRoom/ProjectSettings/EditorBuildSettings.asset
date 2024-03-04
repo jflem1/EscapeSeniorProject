@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Room 3 - Southwest Rec.unity
     guid: 042a3b3d124d9fe4a8713e1662bd0c54
+  - enabled: 1
+    path: Assets/Scenes/Room 4 - Malachowsky Hall.unity
+    guid: aa5b94a526cba8040b943272e158221c
   m_configObjects: {}
