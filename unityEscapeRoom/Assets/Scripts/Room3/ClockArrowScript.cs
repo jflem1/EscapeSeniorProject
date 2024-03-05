@@ -173,7 +173,7 @@ void Update()
         public void CheckTime() // Function called by the button
         {
             // Check if it's 1:15
-            if (hour == 1 && minutes == 15)
+            if (hour == 0 && minutes == 5)
             {
                 reachedGoalTime = true;
                 Debug.Log("Reached 1:15!");
