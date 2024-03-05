@@ -13,6 +13,7 @@ public class LaptopScript : MonoBehaviour
     public float rotY;
     public float rotZ;
     private Vector3 originalPos;
+    private bool canInteract = true;
 
     private Quaternion originalRot;
 
@@ -30,7 +31,8 @@ public class LaptopScript : MonoBehaviour
 
     private void OnMouseDown() 
     {
-        if(!inFront){
+        if(!inFront && canInteract)
+        {
             Debug.Log("Clicked1!");
             if(moving == false){
                 moving = true;
@@ -114,5 +116,15 @@ public class LaptopScript : MonoBehaviour
 
             
         }
+    }
+
+    public void DisableInteraction()
+    {
+        canInteract = false;
+    }
+
+    public void EnableInteraction()
+    {
+        canInteract = true;
     }
 }
