@@ -13,11 +13,13 @@ public class NotebookScript : MonoBehaviour
     public float rotY;
     public float rotZ;
     private Vector3 originalPos;
+    private bool canInteract = true;
 
     private Quaternion originalRot;
 
     private Vector3 newRot;
-    public Vector3 laptopVector;
+    public Vector3 notebookVector;
+    public Vector3 notebookScaleVector;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,7 @@ public class NotebookScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!inFront)
+        if (!inFront && canInteract)
         {
             Debug.Log("Clicked1!");
             if (moving == false)
@@ -89,11 +91,12 @@ public class NotebookScript : MonoBehaviour
     {
         if (moving == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward + laptopVector, speed);
+            transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward + notebookVector, speed);
             transform.right = target.position - target.position;
             newRot = new Vector3(target.rotation.x + rotX, target.rotation.y + rotY, target.rotation.z + rotZ);
             transform.eulerAngles = newRot;
-            if (transform.position == target.position + target.forward + laptopVector)
+            transform.localScale += notebookScaleVector;
+            if (transform.position == target.position + target.forward + notebookVector)
             {
                 moving = false;
                 inFront = true;
@@ -111,6 +114,7 @@ public class NotebookScript : MonoBehaviour
             Debug.Log("REACHED");
             transform.position = Vector3.MoveTowards(transform.position, originalPos, speed);
             //    transform.eulerAngles = originalRot;
+            transform.localScale -= notebookScaleVector;
             transform.rotation = originalRot;
             if (transform.position == originalPos)
             {
@@ -124,5 +128,15 @@ public class NotebookScript : MonoBehaviour
 
 
         }
+    }
+
+    public void DisableInteraction()
+    {
+        canInteract = false;
+    }
+
+    public void EnableInteraction()
+    {
+        canInteract = true;
     }
 }

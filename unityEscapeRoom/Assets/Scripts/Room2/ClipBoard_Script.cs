@@ -12,8 +12,8 @@ public class ClipBoard_Script : MonoBehaviour
     public float rotX;
     public float rotY;
     public float rotZ;
-
     public Vector3 originalPos;
+    private bool canInteract = true;
 
     public Vector3 originalRot;
 
@@ -27,12 +27,13 @@ public class ClipBoard_Script : MonoBehaviour
         originalPos = transform.position;
         originalRot = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
         // backArrowScript = GameObject.Find("Back_Button").GetComponent<BackArrowScript>();
-        GameObject.Find("Back_Button").GetComponent<Renderer>().enabled = false;
+        GameObject.Find("Clipboard_Back_Button").GetComponent<Renderer>().enabled = false;
     }
 
     private void OnMouseDown() 
     {
-        if(!inFront){
+        if(!inFront && canInteract)
+        {
             Debug.Log("Clicked1!");
             if(moving == false){
                 moving = true;
@@ -45,7 +46,7 @@ public class ClipBoard_Script : MonoBehaviour
         MoveToFront();
 
         // Make sure the object in find is the same name as the button
-        if (GameObject.Find("Back_Button").GetComponent<BackArrowScript>().backButtonClicked) {
+        if (GameObject.Find("Clipboard_Back_Button").GetComponent<BackArrowScript>().backButtonClicked) {
             Debug.Log("Back button clicked again");
             if(inFront)
             {
@@ -72,7 +73,7 @@ public class ClipBoard_Script : MonoBehaviour
                 moving = false;
                 inFront = true;                
                 
-                GameObject.Find("Back_Button").GetComponent<Renderer>().enabled = true;
+                GameObject.Find("Clipboard_Back_Button").GetComponent<Renderer>().enabled = true;
             }
             
         }   
@@ -85,8 +86,8 @@ public class ClipBoard_Script : MonoBehaviour
                 
                 moving2 = false;
                 inFront = false;
-                GameObject.Find("Back_Button").GetComponent<BackArrowScript>().backButtonClicked = false;
-                GameObject.Find("Back_Button").GetComponent<Renderer>().enabled = false;
+                GameObject.Find("Clipboard_Back_Button").GetComponent<BackArrowScript>().backButtonClicked = false;
+                GameObject.Find("Clipboard_Back_Button").GetComponent<Renderer>().enabled = false;
                 //transform.eulerAngles = originalRot;    
             }
 
@@ -94,6 +95,13 @@ public class ClipBoard_Script : MonoBehaviour
         }
     }
 
+    public void DisableInteraction()
+    {
+        canInteract = false;
+    }
 
-
+    public void EnableInteraction()
+    {
+        canInteract = true;
+    }
 }
