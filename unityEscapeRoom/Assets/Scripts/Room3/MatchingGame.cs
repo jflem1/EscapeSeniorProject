@@ -10,12 +10,16 @@ public class MatchingGame : MonoBehaviour
     // public float flipTime = 0.5f; // Time to display the word before flipping back
     // public GameObject clockArrowObject;
     public GameObject popUpGameObject;
+    public GameObject clueSolvedObject;
 
 
     private bool canClick = true; // Boolean to control clicking behavior
     private TMPro.TextMeshProUGUI firstClicked; // Store the first clicked word
     private TMPro.TextMeshProUGUI secondClicked; // Store the second clicked word
     private bool isMatching = false; // Flag to indicate if words are matching
+
+    public int countMatched = 0;
+    public bool gameSolved = false;
 
     GameObject firstClickedObject;
     GameObject secondClickedObject;
@@ -24,6 +28,7 @@ public class MatchingGame : MonoBehaviour
     void Start()
     {
         Debug.Log(GameObject.Find("Arrow").GetComponent<ClockArrowScript>().reachedGoalTime);
+        countMatched = 0;
         
         // Initialize the arrays if they are not set
         if (cardTexts == null || cardTexts.Length == 0 || cardObjects == null || cardObjects.Length == 0)
@@ -90,6 +95,7 @@ public class MatchingGame : MonoBehaviour
                 // Clear the clicked cards
                 firstClicked = null;
                 secondClicked = null;
+                countMatched += 1;
                 
 
                 StartCoroutine(CardsMatched());
@@ -100,7 +106,23 @@ public class MatchingGame : MonoBehaviour
                 // If cards don't match, flip them back after flipTime
                 StartCoroutine(FlipCardsBack());
             }
+
+            if(countMatched >= 6) {
+                gameSolved = true;
+                StartCoroutine(GameSolved());
+            }
         }
+    }
+
+    public IEnumerator GameSolved()
+    {
+        canClick = false; // Disable clicking temporarily
+        yield return new WaitForSeconds(1f); // Wait for flipTime duration
+
+        popUpGameObject.SetActive(false);
+        clueSolvedObject.SetActive(true);
+
+        canClick = true; // Re-enable clicking
     }
 
     public IEnumerator CardsMatched()

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ClockScript : MonoBehaviour
 {
+    public GameObject popUpGameObject;
+    public GameObject clueSolvedObject;
+
     public Transform target;
     public float speed;
     private bool moving = false;
@@ -48,7 +51,7 @@ public class ClockScript : MonoBehaviour
     void Update()
     {
         MoveToFront();
-        if (GameObject.Find("Clock_Back_Button").GetComponent<BackArrowScript>().backButtonClicked)
+        if (GameObject.Find("Clock_Back_Button").GetComponent<BackArrowSolved>().backButtonClicked)
         {
             Debug.Log("Back button clicked again");
             if (inFront)
@@ -63,6 +66,8 @@ public class ClockScript : MonoBehaviour
             MoveToOriginalPosition();
 
         }
+
+        
         /*
         if(moving == true){
             transform.position = Vector3.MoveTowards(transform.position, target.position + target.forward, speed);
@@ -103,6 +108,10 @@ public class ClockScript : MonoBehaviour
                 GameObject.Find("Clock_Back_Button").GetComponent<Renderer>().enabled = true;
                 GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = true;
             }
+            if (popUpGameObject.GetComponent<MatchingGame>().gameSolved){
+                clueSolvedObject.SetActive(true);
+                GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
+            }
 
         }
     }
@@ -120,9 +129,11 @@ public class ClockScript : MonoBehaviour
 
                 moving2 = false;
                 inFront = false;
-                GameObject.Find("Clock_Back_Button").GetComponent<BackArrowScript>().backButtonClicked = false;
+                GameObject.Find("Clock_Back_Button").GetComponent<BackArrowSolved>().backButtonClicked = false;
                 GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
                 GameObject.Find("Clock_Back_Button").GetComponent<Renderer>().enabled = false;
+                popUpGameObject.SetActive(false);
+                clueSolvedObject.SetActive(false);
                 //transform.eulerAngles = originalRot;    
             }
 

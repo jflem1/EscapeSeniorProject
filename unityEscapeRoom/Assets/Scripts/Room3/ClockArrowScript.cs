@@ -14,6 +14,7 @@ public class ClockArrowScript : MonoBehaviour {
     public GameObject pointerHours;
 
     public GameObject popUpGameObject;
+    public GameObject clueSolvedObject;
 
     public ClockScript clockScript;
     
@@ -31,6 +32,7 @@ void Start()
     pointerSeconds.GetComponent<Renderer>().enabled = false;
 
     popUpGameObject.SetActive(false);
+    clueSolvedObject.SetActive(false);
 	//-- set real time
 	if (realTime)
 	{
@@ -178,6 +180,7 @@ void Update()
                 reachedGoalTime = true;
                 Debug.Log("Reached 1:15!");
                 popUpGameObject.SetActive(true);
+                GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
             }
             else
             {
