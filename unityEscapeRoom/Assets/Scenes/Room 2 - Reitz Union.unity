@@ -5854,6 +5854,8 @@ MonoBehaviour:
   paletteScript: {fileID: 0}
   bowlscoreScript: {fileID: 0}
   printerScript: {fileID: 0}
+  clockScript: {fileID: 0}
+  notebookScript: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
