@@ -13,6 +13,7 @@ public class ClockScript : MonoBehaviour
     public float rotY;
     public float rotZ;
     private Vector3 originalPos;
+    private bool canInteract = true;
 
     private Quaternion originalRot;
 
@@ -30,7 +31,7 @@ public class ClockScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!inFront)
+        if (!inFront && canInteract)
         {
             Debug.Log("Clicked1!");
             if (moving == false)
@@ -124,5 +125,15 @@ public class ClockScript : MonoBehaviour
 
 
         }
+    }
+
+    public void DisableInteraction()
+    {
+        canInteract = false;
+    }
+
+    public void EnableInteraction()
+    {
+        canInteract = true;
     }
 }
