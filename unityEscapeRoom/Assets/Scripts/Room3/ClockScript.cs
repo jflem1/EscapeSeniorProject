@@ -26,6 +26,7 @@ public class ClockScript : MonoBehaviour
         originalRot = transform.rotation;
         //    originalRot = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
         GameObject.Find("Clock_Back_Button").GetComponent<Renderer>().enabled = false;
+        GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
     }
 
     private void OnMouseDown()
@@ -99,6 +100,7 @@ public class ClockScript : MonoBehaviour
                 inFront = true;
 
                 GameObject.Find("Clock_Back_Button").GetComponent<Renderer>().enabled = true;
+                GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = true;
             }
 
         }
@@ -118,6 +120,7 @@ public class ClockScript : MonoBehaviour
                 moving2 = false;
                 inFront = false;
                 GameObject.Find("Clock_Back_Button").GetComponent<BackArrowScript>().backButtonClicked = false;
+                GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
                 GameObject.Find("Clock_Back_Button").GetComponent<Renderer>().enabled = false;
                 //transform.eulerAngles = originalRot;    
             }
