@@ -22,6 +22,8 @@ public class MouseLookAround : MonoBehaviour
     public ClockScript clockScript;
     public NotebookScript notebookScript;
 
+    public bool cameraPaused = false;
+
     void Start()
     {
         // Set the initial rotation
@@ -43,152 +45,168 @@ public class MouseLookAround : MonoBehaviour
 
     void Update()
     {
-        currentScene = SceneManager.GetActiveScene();
+        if (!cameraPaused)
+        {
+            currentScene = SceneManager.GetActiveScene();
 
-        // Check if the clipboard is not in front of the camera
-        if (clipboardScript != null && clipboardScript.inFront){
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            paletteScript.DisableInteraction();
-            bowlscoreScript.DisableInteraction();
-            printerScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else if(bookScript != null && bookScript.inFront){
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            laptopScript.DisableInteraction();
-            paintingScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else if(laptopScript != null && laptopScript.inFront){
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            bookScript.DisableInteraction();
-            paintingScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else if(keypadScript != null && keypadScript.inFront){
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            if (currentScene.name == "Room 1 - Marston")
+            // Check if the clipboard is not in front of the camera
+            if (clipboardScript != null && clipboardScript.inFront)
             {
-                bookScript.DisableInteraction();
-                laptopScript.DisableInteraction();
-                paintingScript.DisableInteraction();
-            }
-            else if (currentScene.name == "Room 2 - Reitz Union")
-            {
-                clipboardScript.DisableInteraction();
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
                 paletteScript.DisableInteraction();
                 bowlscoreScript.DisableInteraction();
                 printerScript.DisableInteraction();
+                keypadScript.DisableInteraction();
             }
-            else if (currentScene.name == "Room 3 - Southwest Rec")
+            else if (bookScript != null && bookScript.inFront)
             {
-                clockScript.DisableInteraction();
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
+                laptopScript.DisableInteraction();
+                paintingScript.DisableInteraction();
+                keypadScript.DisableInteraction();
+            }
+            else if (laptopScript != null && laptopScript.inFront)
+            {
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
+                bookScript.DisableInteraction();
+                paintingScript.DisableInteraction();
+                keypadScript.DisableInteraction();
+            }
+            else if (keypadScript != null && keypadScript.inFront)
+            {
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
+                if (currentScene.name == "Room 1 - Marston")
+                {
+                    bookScript.DisableInteraction();
+                    laptopScript.DisableInteraction();
+                    paintingScript.DisableInteraction();
+                }
+                else if (currentScene.name == "Room 2 - Reitz Union")
+                {
+                    clipboardScript.DisableInteraction();
+                    paletteScript.DisableInteraction();
+                    bowlscoreScript.DisableInteraction();
+                    printerScript.DisableInteraction();
+                }
+                else if (currentScene.name == "Room 3 - Southwest Rec")
+                {
+                    clockScript.DisableInteraction();
+                    notebookScript.DisableInteraction();
+                }
+            }
+            else if (paintingScript != null && paintingScript.inFront)
+            {
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
+                bookScript.DisableInteraction();
+                laptopScript.DisableInteraction();
+                keypadScript.DisableInteraction();
+            }
+            else if (paletteScript != null && paletteScript.inFront)
+            {
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
+                clipboardScript.DisableInteraction();
+                bowlscoreScript.DisableInteraction();
+                printerScript.DisableInteraction();
+                keypadScript.DisableInteraction();
+            }
+            else if (bowlscoreScript != null && bowlscoreScript.inFront)
+            {
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
+                clipboardScript.DisableInteraction();
+                paletteScript.DisableInteraction();
+                printerScript.DisableInteraction();
+                keypadScript.DisableInteraction();
+            }
+            else if (printerScript != null && printerScript.inFront)
+            {
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
+                clipboardScript.DisableInteraction();
+                paletteScript.DisableInteraction();
+                bowlscoreScript.DisableInteraction();
+                keypadScript.DisableInteraction();
+            }
+            else if (clockScript != null && clockScript.inFront)
+            {
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+
                 notebookScript.DisableInteraction();
+                keypadScript.DisableInteraction();
             }
-        }
-        else if(paintingScript != null && paintingScript.inFront){
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            bookScript.DisableInteraction();
-            laptopScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else if (paletteScript != null && paletteScript.inFront){
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            clipboardScript.DisableInteraction();
-            bowlscoreScript.DisableInteraction();
-            printerScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else if (bowlscoreScript != null && bowlscoreScript.inFront){
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            clipboardScript.DisableInteraction();
-            paletteScript.DisableInteraction();
-            printerScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else if (printerScript != null && printerScript.inFront){
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            clipboardScript.DisableInteraction();
-            paletteScript.DisableInteraction();
-            bowlscoreScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else if (clockScript != null && clockScript.inFront)
-        {
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            notebookScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else if (notebookScript != null && notebookScript.inFront)
-        {
-            rotationX = initialRotation.x;
-            rotationY = initialRotation.y;
-            transform.localEulerAngles = initialRotation;
-
-            clockScript.DisableInteraction();
-            keypadScript.DisableInteraction();
-        }
-        else
-        {
-            rotationY += Input.GetAxis("Mouse X") * sensitivity;
-            rotationX += Input.GetAxis("Mouse Y") * -1 * sensitivity;
-
-            // Clamp vertical rotation to prevent flipping
-            rotationX = Mathf.Clamp(rotationX, -90f, 90f);
-
-            transform.localEulerAngles = new Vector3(rotationX, rotationY, 0);
-            if (currentScene.name == "YourSceneName")
+            else if (notebookScript != null && notebookScript.inFront)
             {
-                // Do something specific for this scene
-                Debug.Log("You are in the YourSceneName scene.");
-            }
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
 
-            if (currentScene.name == "Room 1 - Marston")
-            {
-                bookScript.EnableInteraction();
-                laptopScript.EnableInteraction();
-                paintingScript.EnableInteraction();
+                clockScript.DisableInteraction();
+                keypadScript.DisableInteraction();
             }
-            else if (currentScene.name == "Room 2 - Reitz Union")
+            else
             {
-                clipboardScript.EnableInteraction();
-                paletteScript.EnableInteraction();
-                bowlscoreScript.EnableInteraction();
-                printerScript.EnableInteraction();
+                rotationY += Input.GetAxis("Mouse X") * sensitivity;
+                rotationX += Input.GetAxis("Mouse Y") * -1 * sensitivity;
+
+                // Clamp vertical rotation to prevent flipping
+                rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+
+                transform.localEulerAngles = new Vector3(rotationX, rotationY, 0);
+                if (currentScene.name == "YourSceneName")
+                {
+                    // Do something specific for this scene
+                    Debug.Log("You are in the YourSceneName scene.");
+                }
+
+                if (currentScene.name == "Room 1 - Marston")
+                {
+                    bookScript.EnableInteraction();
+                    laptopScript.EnableInteraction();
+                    paintingScript.EnableInteraction();
+                }
+                else if (currentScene.name == "Room 2 - Reitz Union")
+                {
+                    clipboardScript.EnableInteraction();
+                    paletteScript.EnableInteraction();
+                    bowlscoreScript.EnableInteraction();
+                    printerScript.EnableInteraction();
+                }
+                else if (currentScene.name == "Room 3 - Southwest Rec")
+                {
+                    clockScript.EnableInteraction();
+                    notebookScript.EnableInteraction();
+                }
+                keypadScript.EnableInteraction();
             }
-            else if (currentScene.name == "Room 3 - Southwest Rec")
-            {
-                clockScript.EnableInteraction();
-                notebookScript.EnableInteraction();
-            }
-            keypadScript.EnableInteraction();
         }
+    }
+
+    public void ToggleCameraPause(bool pause)
+    {
+        cameraPaused = pause;
     }
 }
