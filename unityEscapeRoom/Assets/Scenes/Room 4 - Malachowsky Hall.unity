@@ -2174,7 +2174,7 @@ GameObject:
   - component: {fileID: 876691165}
   - component: {fileID: 876691164}
   m_Layer: 0
-  m_Name: Next Door
+  m_Name: WireBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2279,6 +2279,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &876691169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876691163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e8469a9fb2b6e498ed624c631563fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorLocked: 0
+  roomName: Room 5 - Century Tower
 --- !u!1 &916145117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,6 +2399,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1092809250
+--- !u!1 &973941446
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2398,7 +2413,13 @@ GameObject:
   - component: {fileID: 1092809253}
   - component: {fileID: 1092809252}
   - component: {fileID: 1092809251}
+  - component: {fileID: 973941450}
+  - component: {fileID: 973941449}
+  - component: {fileID: 973941448}
+  - component: {fileID: 973941447}
   m_Layer: 0
+  m_Name: Morse Code Chart
+  m_TagString: Untagged
   m_Name: Wire4Start
   m_TagString: Wire4
   m_Icon: {fileID: 0}
@@ -2629,21 +2650,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1212468127
+--- !u!114 &1107592107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107592106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ceb8ba296059147bf5d21bc08d09af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 2
+  initialRotation: {x: 0, y: 180, z: 0}
+  clipboardScript: {fileID: 0}
+  bookScript: {fileID: 0}
+  laptopScript: {fileID: 0}
+  keypadScript: {fileID: 0}
+  paintingScript: {fileID: 0}
+--- !u!81 &1107592108
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212468126}
+  m_GameObject: {fileID: 1107592106}
   m_Enabled: 1
---- !u!20 &1212468128
+--- !u!20 &1107592109
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212468126}
+  m_GameObject: {fileID: 1107592106}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -2688,13 +2728,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &1212468129
+--- !u!4 &1107592110
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212468126}
+  m_GameObject: {fileID: 1107592106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.14, z: 1.45}
@@ -3380,7 +3420,7 @@ GameObject:
   - component: {fileID: 1487408060}
   - component: {fileID: 1487408059}
   - component: {fileID: 1487408058}
-  - component: {fileID: 1487408057}
+  - component: {fileID: 1487408062}
   m_Layer: 0
   m_Name: Back Door
   m_TagString: Untagged
@@ -3388,19 +3428,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1487408057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487408056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2be44b66501d2e84891b95a049507e7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorLocked: 1
 --- !u!65 &1487408058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3480,7 +3507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487408056}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.45, z: 2.94}
   m_LocalScale: {x: 0.5, y: 1, z: 0.01}
   m_ConstrainProportionsScale: 0
@@ -4032,7 +4059,6 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1212468129}
   - {fileID: 673884980}
   - {fileID: 125333359}
   - {fileID: 876691168}
