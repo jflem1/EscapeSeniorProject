@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2138778167}
-  speed: 0.001
+  speed: 0.01
   inFront: 0
   rotX: 0
   rotY: -20
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2138778167}
-  speed: 0.001
+  speed: 0.01
   inFront: 0
   rotX: 0
   rotY: -90
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2138778167}
-  speed: 0.001
+  speed: 0.01
   inFront: 0
   rotX: 0
   rotY: 0
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2138778167}
-  speed: 0.1
+  speed: 0.01
   inFront: 0
   rotX: 180
   rotY: 0
@@ -3185,6 +3185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e8469a9fb2b6e498ed624c631563fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorLocked: 1
+  roomName: Room 2 - Reitz Union
 --- !u!1 &1904176875
 GameObject:
   m_ObjectHideFlags: 0
