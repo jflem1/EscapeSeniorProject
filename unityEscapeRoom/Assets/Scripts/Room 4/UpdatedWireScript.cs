@@ -24,7 +24,7 @@ public class UpdatedWireScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        line.SetPosition(0, MouseWorldPosition()); //+offset usually
+        line.SetPosition(0, MouseWorldPosition() + offset); //+offset usually
         line.SetPosition(1, transform.position);
     }
 
