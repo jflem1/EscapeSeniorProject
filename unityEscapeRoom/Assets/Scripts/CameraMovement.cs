@@ -21,6 +21,7 @@ public class MouseLookAround : MonoBehaviour
     public PrinterScript printerScript;
     public ClockScript clockScript;
     public NotebookScript notebookScript;
+    public WireBoxScript wireboxScript;
 
     public bool cameraPaused = false;
 
@@ -41,6 +42,7 @@ public class MouseLookAround : MonoBehaviour
         printerScript = FindObjectOfType<PrinterScript>();
         clockScript = FindObjectOfType<ClockScript>();
         notebookScript = FindObjectOfType<NotebookScript>();
+        wireboxScript = FindObjectOfType<WireBoxScript>();
     }
 
     void Update()
@@ -166,6 +168,15 @@ public class MouseLookAround : MonoBehaviour
 
                 clockScript.DisableInteraction();
                 keypadScript.DisableInteraction();
+            }
+            else if (wireboxScript != null && wireboxScript.inFront)
+            {
+                rotationX = initialRotation.x;
+                rotationY = initialRotation.y;
+                transform.localEulerAngles = initialRotation;
+                
+            //    clockScript.DisableInteraction();
+            //    keypadScript.DisableInteraction();
             }
             else
             {
