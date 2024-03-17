@@ -10,6 +10,7 @@ public class StartTimer : MonoBehaviour
 
     public GameObject pauseMenuObject;
     public GameObject pauseButtonObject;
+    public GameObject hintButtonObject;
 
     private MouseLookAround mouseLookScript;
 
@@ -27,7 +28,7 @@ public class StartTimer : MonoBehaviour
     {
         if (gamePaused == false) {
             timer += Time.deltaTime; 
-            Debug.Log(timer);
+            // Debug.Log(timer);
 
         }
         // else if(gamePaused == true){
@@ -45,6 +46,7 @@ public class StartTimer : MonoBehaviour
         gamePaused = !gamePaused;
         pauseMenuObject.SetActive(gamePaused);
         pauseButtonObject.SetActive(!gamePaused);
+        hintButtonObject.SetActive(!gamePaused);
 
         if(mouseLookScript != null)
         {
