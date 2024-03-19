@@ -22,6 +22,15 @@ public class ClockScript : MonoBehaviour
 
     private Vector3 newRot;
     public Vector3 laptopVector;
+
+    public GameObject upHourObject;
+    public GameObject downHourObject;
+    public GameObject upMinObject;
+    public GameObject downMinObject;
+
+    public GameObject hourText;
+    public GameObject minText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +40,15 @@ public class ClockScript : MonoBehaviour
         //    originalRot = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
         GameObject.Find("Clock_Back_Button").GetComponent<Renderer>().enabled = false;
         GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
+
+        upHourObject.GetComponent<Renderer>().enabled = false;
+        downHourObject.GetComponent<Renderer>().enabled = false;
+        upMinObject.GetComponent<Renderer>().enabled = false;
+        downMinObject.GetComponent<Renderer>().enabled = false;
+
+        hourText.GetComponent<Renderer>().enabled = false;
+        minText.GetComponent<Renderer>().enabled = false;
+
     }
 
     private void OnMouseDown()
@@ -107,9 +125,21 @@ public class ClockScript : MonoBehaviour
 
                 GameObject.Find("Clock_Back_Button").GetComponent<Renderer>().enabled = true;
                 GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = true;
+                upHourObject.GetComponent<Renderer>().enabled = true;
+                downHourObject.GetComponent<Renderer>().enabled = true;
+                upMinObject.GetComponent<Renderer>().enabled = true;
+                downMinObject.GetComponent<Renderer>().enabled = true;
+                hourText.GetComponent<Renderer>().enabled = true;
+                minText.GetComponent<Renderer>().enabled = true;
             }
             if (popUpGameObject.GetComponent<MatchingGame>().gameSolved){
                 clueSolvedObject.SetActive(true);
+                upHourObject.GetComponent<Renderer>().enabled = false;
+                downHourObject.GetComponent<Renderer>().enabled = false;
+                upMinObject.GetComponent<Renderer>().enabled = false;
+                downMinObject.GetComponent<Renderer>().enabled = false;
+                hourText.GetComponent<Renderer>().enabled = false;
+                minText.GetComponent<Renderer>().enabled = false;
                 GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
             }
 
@@ -132,6 +162,12 @@ public class ClockScript : MonoBehaviour
                 GameObject.Find("Clock_Back_Button").GetComponent<BackArrowSolved>().backButtonClicked = false;
                 GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
                 GameObject.Find("Clock_Back_Button").GetComponent<Renderer>().enabled = false;
+                upHourObject.GetComponent<Renderer>().enabled = false;
+                downHourObject.GetComponent<Renderer>().enabled = false;
+                upMinObject.GetComponent<Renderer>().enabled = false;
+                downMinObject.GetComponent<Renderer>().enabled = false;
+                hourText.GetComponent<Renderer>().enabled = false;
+                minText.GetComponent<Renderer>().enabled = false;
                 popUpGameObject.SetActive(false);
                 clueSolvedObject.SetActive(false);
                 //transform.eulerAngles = originalRot;    

@@ -5,7 +5,7 @@ public class ClockArrowScript : MonoBehaviour {
 
 	//-- set start time 00:00
     public int minutes = 0;
-    public int hour = 0;
+    public int hour = 12;
 	public int seconds = 0;
 	public bool realTime=true;
 	
@@ -17,6 +17,15 @@ public class ClockArrowScript : MonoBehaviour {
     public GameObject clueSolvedObject;
 
     public ClockScript clockScript;
+
+    public GameObject upHourObject;
+    public GameObject downHourObject;
+    public GameObject upMinObject;
+    public GameObject downMinObject;
+
+    public GameObject hourText;
+    public GameObject minText;
+
     
     //-- time speed factor
     public float clockSpeed = 1.0f;     // 1.0f = realtime, < 1.0f = slower, > 1.0f = faster
@@ -46,7 +55,7 @@ void Update()
 {
     if (!clockScript.inFront){
         minutes = 0;
-        hour = 0;
+        hour = 12;
     }
     //-- calculate time
     msecs += Time.deltaTime * clockSpeed;
@@ -82,53 +91,10 @@ void Update()
 
     if (GameObject.Find("Submit_Button").GetComponent<ClockSubmitButton>().submitButtonClicked)
     {
-        // Debug.Log("Back button clicked again");
+        Debug.Log("Submit clicked again");
         CheckTime();
-        
-
     }
-    else {
-        // Allow players to adjust time using mouse left button click
-        if (Input.GetMouseButtonDown(0)) // Left mouse button click
-        {
-            minutes += 5; // Increment minutes by 5
-            if (minutes >= 60)
-            {
-                minutes = 0;
-                hour++;
-                if (hour >= 24)
-                    hour = 0;
-            }
-
-            // // Check if it's 5:45
-            // if (hour == 1 && minutes == 15)
-            // {
-            //     reachedGoalTime = true;
-            //     Debug.Log("Reached 5:45!");
-            //     popUpGameObject.SetActive(true);
-            // }
-        }
-        // Allow players to adjust time using mouse left button click
-        else if (Input.GetMouseButtonDown(1)) // Left mouse button click
-        {
-            minutes -= 5; // Decrement minutes by decrementValue
-            if (minutes < 0)
-            {
-                minutes += 60;
-                hour--;
-                if (hour < 0)
-                    hour = 23;
-            }
-
-            // // Check if it's 5:45
-            // if (hour == 1 && minutes == 15)
-            // {
-            //     reachedGoalTime = true;
-            //     Debug.Log("Reached 5:45!");
-            //     popUpGameObject.SetActive(true);
-            // }
-        }
-    }
+    
     
 
 
@@ -172,23 +138,29 @@ void Update()
     }
 
 
-        public void CheckTime() // Function called by the button
+    public void CheckTime() // Function called by the button
+    {
+        // Check if it's 1:15
+        if (hour == 2 && minutes == 5)
         {
-            // Check if it's 1:15
-            if (hour == 2 && minutes == 5)
-            {
-                reachedGoalTime = true;
-                Debug.Log("Reached 1:15!");
-                popUpGameObject.SetActive(true);
-                GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
-            }
-            else
-            {
-                reachedGoalTime = false;
-                Debug.Log("Not yet reached 1:15!");
-                popUpGameObject.SetActive(false);
-            }
-
-            GameObject.Find("Submit_Button").GetComponent<ClockSubmitButton>().submitButtonClicked = false;
+            reachedGoalTime = true;
+            Debug.Log("Reached 2:15!");
+            popUpGameObject.SetActive(true);
+            GameObject.Find("Submit_Button").GetComponent<Renderer>().enabled = false;
+            upHourObject.GetComponent<Renderer>().enabled = false;
+            downHourObject.GetComponent<Renderer>().enabled = false;
+            upMinObject.GetComponent<Renderer>().enabled = false;
+            downMinObject.GetComponent<Renderer>().enabled = false;
+            hourText.GetComponent<Renderer>().enabled = false;
+            minText.GetComponent<Renderer>().enabled = false;
         }
+        else
+        {
+            reachedGoalTime = false;
+            Debug.Log("Not yet reached 1:15!");
+            popUpGameObject.SetActive(false);
+        }
+
+        GameObject.Find("Submit_Button").GetComponent<ClockSubmitButton>().submitButtonClicked = false;
+    }
 }
