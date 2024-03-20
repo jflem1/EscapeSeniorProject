@@ -2421,6 +2421,10 @@ MonoBehaviour:
   hintMenuObject: {fileID: 1126457772}
   hintButtonObject: {fileID: 2050810821}
   pauseButtonObject: {fileID: 1631976952}
+  hintTextObjects:
+  - {fileID: 1178214175}
+  - {fileID: 820063499}
+  - {fileID: 512823972}
 --- !u!1 &814719056
 GameObject:
   m_ObjectHideFlags: 0
