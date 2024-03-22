@@ -17,12 +17,16 @@ const Game = () => {
   const [username, setUsername] = useState();
   const [escapeTime, setEscapeTime] = useState();
 
-  const { addEventListener, removeEventListener, unityProvider } = useUnityContext({
-    loaderUrl: "/Build/escapeRoomUnity.loader.js",
-    dataUrl: "/Build/escapeRoomUnity.data.unityweb",
-    frameworkUrl: "/Build/escapeRoomUnity.framework.js.unityweb",
-    codeUrl: "/Build/escapeRoomUnity.wasm.unityweb",
+  const { addEventListener, removeEventListener, requestFullscreen, unityProvider } = useUnityContext({
+    loaderUrl: "/Build/Assembly-CSharp.loader.js",
+    dataUrl: "/Build/Assembly-CSharp.data.unityweb",
+    frameworkUrl: "/Build/Assembly-CSharp.framework.js.unityweb",
+    codeUrl: "/Build/Assembly-CSharp.wasm.unityweb",
   });
+
+  const handleFullScreenClick =()=> {
+    requestFullscreen(true);
+  }
 
   const handleCreateUser = useCallback((username) => {
     setUsername(username)
@@ -111,7 +115,7 @@ const Game = () => {
 
         </Row>
       </Container>
-
+      <button style={{marginBottom: "5rem"}} onClick={handleFullScreenClick}>Enter Fullscreen</button>
     </div>
 
     <Footer/>
