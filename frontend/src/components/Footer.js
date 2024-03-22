@@ -1,35 +1,27 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom'
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const Footer = () => {
-
-    const footerText = {
-        marginLeft: '15px',
+    const footerStyle = {
+        position: 'relative',
+        width: '100%',
+        height: '50px',
+        backgroundColor: '#90AACB',
         color: '#FFFFFF',
+        alignItems: 'center',
+        paddingLeft: '20px', 
+        paddingTop: '10px',
+        margin: '0 auto',
+        textAlign: 'center', 
     };
 
-    const footerBackColor = {
-        backgroundColor: '#002657',
-      };    
-
-
-return (
-    <>
-        <div>
-            <Navbar expand="lg" fixed="bottom" style={footerBackColor}>
-                <Navbar.Brand style={footerText}> 2024 </Navbar.Brand>
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                <Nav>
-                    <Nav.Link as={Link} to="/home" style={footerText}>Home</Nav.Link>
-                    <Nav.Link as={Link} to="/game" style={footerText}>Game</Nav.Link>
-                    <Nav.Link as={Link} to="/about" style={footerText}>About</Nav.Link>
-                </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+    return (
+        <div style={footerStyle}>
+            <Container>
+                <p>University of Florida 2024 </p>
+            </Container>
         </div>
-    </>
-  )
+    );
 }
 
-export default Footer
+export default Footer;

@@ -1,26 +1,27 @@
 import React, {useState, useCallback,  useEffect} from 'react'
 import { Unity, useUnityContext } from "react-unity-webgl";
 import axios from "axios";
+import Footer from '../Footer';
+import { Dropdown, Container, Form, Row, Col, Tab, Tabs } from 'react-bootstrap'
+import TextBox from '../misc/textBox';
+import Calculator from '../misc/Calculator';
+import './Game.css'
 
 const Game = () => {
 
+  const gameStyle = {
+    paddingTop: "2rem",
+    paddingBottom: '5rem',
+  };
+  
   const [username, setUsername] = useState();
   const [escapeTime, setEscapeTime] = useState();
 
-
-  const gameStyle = {
-    paddingTop: "0.5rem",
-    justifyContent: "center",
-    display: "flex",
-    paddingBottom: '5rem',
-    // border: '0.2rem solid black',
-  }
-
   const { addEventListener, removeEventListener, unityProvider } = useUnityContext({
-    loaderUrl: "/Build/webglUnityEscapeRoomBuild.loader.js",
-    dataUrl: "/Build/webglUnityEscapeRoomBuild.data.unityweb",
-    frameworkUrl: "/Build/webglUnityEscapeRoomBuild.framework.js.unityweb",
-    codeUrl: "/Build/webglUnityEscapeRoomBuild.wasm.unityweb",
+    loaderUrl: "/Build/escapeRoomUnity.loader.js",
+    dataUrl: "/Build/escapeRoomUnity.data.unityweb",
+    frameworkUrl: "/Build/escapeRoomUnity.framework.js.unityweb",
+    codeUrl: "/Build/escapeRoomUnity.wasm.unityweb",
   });
 
   const handleCreateUser = useCallback((username) => {
@@ -55,18 +56,66 @@ const Game = () => {
       removeEventListener("EndGame", updateUserEscapeTime);
     };
   }, [addEventListener, removeEventListener, updateUserEscapeTime]);
+  
 
+  const [Difficulty, setDifficulty] = useState(null);
 
+  const [key, setKey] = useState('Notepad');
 
+  const handleSelect = (eventKey) => {
+    setDifficulty(eventKey);
+  };
+  
   return (
+    <>
     <div align="center">
-        <h1 style={{ paddingTop: '2.5rem'}}>Difficulty: Easy</h1>
-        <div style={gameStyle}>
-          {/* Make the compression format Gzip before building and check decompression fallback */}
-          <Unity unityProvider={unityProvider} style={{ width: '75%', height: '75%' }} />
-        </div>
-       
+
+        <h1 style={{ paddingTop: '2.5rem', fontFamily: "'Anton', sans-serif", color:'#000000'}}>Difficulty:</h1>
+
+        <Dropdown onSelect={handleSelect} data-bs-theme="dark">
+          <Dropdown.Toggle variant="secondary">
+          {Difficulty || 'Select Difficulty'}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item eventKey="Easy">Easy</Dropdown.Item>
+            <Dropdown.Item eventKey="Medium">Medium</Dropdown.Item>
+            <Dropdown.Item eventKey="Hard">Hard</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+    
+      <Container>
+        <Row className="justify-content-center">
+
+          <Col xs={12} sm={12} md={10} lg={9}>
+            <div style={gameStyle}>
+            <Unity unityProvider={unityProvider} style={{ width: '100%', height: '100%' }} />
+            </div>
+          </Col>
+
+          <Col xs={8} sm={8} md={8} lg={3} style={{paddingTop:'2rem', paddingBottom:'5rem'}}>
+            <Tabs
+              id="controlled-tab-example"
+              activeKey={key}
+              onSelect={(k) => setKey(k)}
+              className="mb-3 custom-tabs"
+            >
+              <Tab eventKey="Notepad" title="Notepad">
+                <TextBox/>
+              </Tab>
+              <Tab eventKey="Calculator" title="Calculator">
+                <Calculator/>
+              </Tab>
+            </Tabs>
+          </Col>
+
+        </Row>
+      </Container>
+
     </div>
+
+    <Footer/>
+    </>
   )
 }
 

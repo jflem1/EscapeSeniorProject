@@ -1,0 +1,40 @@
+  .top-section {
+    width: 100%; 
+    height: 100vh; 
+    padding-top: 12%;
+    text-align: center;
+  }
+
+  .bottom-section {
+    width: 100%; 
+    height: 100vh; 
+  }
+
+  .bottom-section p {
+    text-align: center;
+  }
+  
+  .landing {
+    /* background:linear-gradient(to right,#2B00FF, #74461A); */
+    background: linear-gradient(#90AACB, 40%, rgb(255, 176, 133), 90%, #F9D5A7);
+  }
+  
+  .leaderboard{
+    background-color: #F9D5A7; 
+  }
+
+  .landingStatement{
+    color: #ffffff;
+    font-style: italic;
+    font-Family: 'Anton', sans-serif;
+    font-Size: 61px;
+  }
+
+  .chomped{
+    margin-Left: '40px';
+    font-style: italic;
+    font-Family: 'Anton', sans-serif;
+    font-Size: 61px;
+    color:#5f8cc6;
+  }
+  
