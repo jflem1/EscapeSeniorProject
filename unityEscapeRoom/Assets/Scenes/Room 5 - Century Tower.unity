@@ -2996,7 +2996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorLocked: 0
-  roomName: 
+  roomName: EndScreen
 --- !u!1 &1443934807
 GameObject:
   m_ObjectHideFlags: 0
