@@ -10,7 +10,7 @@ const Leaderboard = () => {
     useEffect(() => {
         axios.get(process.env.REACT_APP_GET_ALL_USER_API_URL)
         .then((response) => {
-            console.log(response.data.allUsers)
+            // console.log(response.data.allUsers)
             setUsers(response.data.allUsers)
             setTopFive(getTopFiveFastestTimes(response.data.allUsers))
         })
@@ -79,9 +79,9 @@ const Leaderboard = () => {
         <Card.Body>
             {
                 topFive.map((item, index) => {
-
+                    {console.log(item)}
                     return (
-                        <Card.Text className="font-weight-bold">
+                        <Card.Text style={{color: "black"}} className="font-weight-bold">
                             {index+1}. {item.username} {item.escapeTime}
                         </Card.Text>
                     )
