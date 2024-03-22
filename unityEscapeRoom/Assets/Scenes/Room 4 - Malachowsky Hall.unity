@@ -1063,8 +1063,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.1195755
-        value: 0.02632904
+        time: 0.12713623
+        value: 0.017402649
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -3123,7 +3123,7 @@ MonoBehaviour:
   rotY: 0
   rotZ: 0
   allConnected: 0
-  WireBoxVector: {x: -0.6, y: 0.1, z: -0.4}
+  WireBoxVector: {x: -0.6, y: 0.1, z: 0}
 --- !u!65 &747937654
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6351,6 +6351,7 @@ GameObject:
   - component: {fileID: 1801467921}
   - component: {fileID: 1801467920}
   - component: {fileID: 1801467919}
+  - component: {fileID: 1801467923}
   m_Layer: 0
   m_Name: Morse Code Header
   m_TagString: Untagged
@@ -6438,12 +6439,25 @@ Transform:
   m_GameObject: {fileID: 1801467918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.447, y: 0.568, z: 1.384}
+  m_LocalPosition: {x: -1.439, y: 0.373, z: 0.816}
   m_LocalScale: {x: 0.001, y: 0.1, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1801467923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801467918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcd4c2797b7f1d47876d73ec073c05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireboxScript: {fileID: 0}
 --- !u!1 &1845368111
 GameObject:
   m_ObjectHideFlags: 0
